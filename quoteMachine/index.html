@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: rgb(25, 25, 25);
+      color: white;
+      font-size: 2rem;
+      align-items: center;
+    }
+
+    #text {
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      padding: 10px;
+      margin: 20px;
+    }
+
+    button {
+      background-color: red;
+      color: white;
+      padding: 10px;
+    }
+
+    #quote-box {
+      padding: 50px;
+      width: 50%;
+      height: 300px;
+      border: solid white 2px;
+      margin-top: 25%;
+      margin-left: 25%;
+      text-align: center;
+    }
+  </style>
+  <script>
+    // Quotes That run ATM//
+
+    let quoteBank = [
+      {
+        quote: "Be yourself; everyone else is already taken.",
+        author: "Oscar Wilde",
+      },
+      {
+        quote: "So many books, so little time.",
+        author: "Frank Zappa",
+      },
+      {
+        quote: "You only live once, but if you do it right, once is enough.",
+        author: "Mae West",
+      },
+      {
+        quote: "Be the change that you wish to see in the world.",
+        author: "Mahatma Gandhi",
+      },
+      {
+        quote:
+          "In three words I can sum up everything I've learned about life: it goes on.",
+        author: "Robert Frost",
+      },
+    ];
+
+    // Start Up Javascript //
+
+    window.onload = init();
+
+    function init() {
+      GenerateQuote();
+    }
+
+    function GenerateQuote() {
+      let quoteSize = quoteBank.length;
+      let randomIndex = Math.floor(Math.random() * quoteSize);
+      let randomQuoteData = quoteBank[randomIndex];
+
+      document.getElementById("text").innerText = randomQuoteData.quote;
+      document.getElementById("author").innerText = randomQuoteData.author;
+    }
+  </script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quote Generator</title>
+  </head>
+  <body>
+    <div id="quote-box">
+      <div id="text"></div>
+      <div id="author"></div>
+      <button id="new-quote" onclick="GenerateQuote()">
+        Generate a New Quote!
+      </button>
+      <a href="twitter.com/intent/tweet" id="tweet-quote">Tweet Quote!</a>
+    </div>
+  </body>
+</html>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
